@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="footer-widget bg-white pinside30 mb30">
+            <div class="logo mb30"> <a href="images/logo.png"><img src="images/logo.png" class="img-responsive" alt=""></a> </div>
+            <p class="mb30">Cras ut mauris fermentum pulvinar us utempus magivamus molestie molestie pulvin estibulum acvehicula erurabitur arcuornare ipsum.</p>
+            <div class="footer-social"><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-google-plus"></i></a></div>
+          </div>
+        </div>
+        <div class="col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-6 col-xs-12">
+          <div class="footer-widget footer-contact">
+            <h2 class="footer-title">Contact Info</h2>
+            <ul class="listnone">
+              <li>
+                <div class="row">
+                  <div class="col-md-2"><i class="fa fa-phone"></i></div>
+                  <div class="col-md-10">
+                    <h4 class="call-no"><a href="#">+1 (800) 123 - 456</a></h4>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-md-2"><i class="fa fa-envelope-o"></i></div>
+                  <div class="col-md-10">
+                    <h4 class="mail-text"><a href="#">beauty####@gmail.com</a></h4>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="row">
+                  <div class="col-md-2"><i class="fa fa-clock-o"></i></div>
+                  <div class="col-md-10">
+                    <h4 class="time-text"><a href="#">Mon-sun : 10am : 07pm</a></h4>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-offset-1 col-lg-3 col-md-offset-1 col-md-3 col-sm-6 col-xs-12">
+          <div class="footer-widget">
+            <h2 class="footer-title">Quick Links</h2>
+            <ul class="listnone">
+              <li><i class="fa fa-caret-right"></i><a href="{% url 'homepage:home' %}">Home</a></li>
+              <li><i class="fa fa-caret-right"></i><a href="{% url 'servicepage:service' %}">Services</a></li>
+              <li><i class="fa fa-caret-right"></i><a href="{% url 'servicepage:testimonialpage' %}">Testimonial</a></li>
+              <li><i class="fa fa-caret-right"></i><a href="{% url 'blogpage:blog' %}">Blog</a></li>
+              <li><i class="fa fa-caret-right"></i><a href="{% url 'homepage:gallery' %}">Gallery</a></li>
+              <li><i class="fa fa-caret-right"></i><a href="{% url 'contactpage:contact' %}">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tiny-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">Copyrights@2017 | All Rights Reserve</div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

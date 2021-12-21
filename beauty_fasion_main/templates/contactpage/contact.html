@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+{% include 'global/navbar.html' %}
+
+
+
+<div class="page-header page-caption">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h1 class="page-title">Contact Us</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="space-medium">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 bg-primary pinside40">
+          <div class="contact-info">
+            <div class="logo mb40"> <a href="index.html"><img src="images/logo-white.png" class="img-responsive" alt=""></a> </div>
+            <ul class="listnone">
+              <li><i class="icon-placeholder icon-secondary icon-2x"></i>
+                <address>
+                9870 St Vincent Place, <br>
+                Glasgow, DC 45
+                </address>
+              </li>
+              <li><i class=" icon-phone-call icon-secondary icon-2x"></i>
+                <p>+1 (800) 123 - 456</p>
+              </li>
+              <li><i class="icon-email icon-secondary icon-2x"></i>
+                <p>beautysalon@gmail.com</p>
+              </li>
+              <li><i class=" icon-clock icon-secondary icon-2x"></i>
+                <p>Mon-Sun : 10am : 07pm</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 outline pinside40">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <h1>Get In Touch</h1>
+            </div>
+          </div>
+          <div class="row">
+            <form action="" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}  
+              <!-- Textarea -->
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"> 
+                <!-- Text input-->
+                <div class="form-group">
+                  <label class=" control-label" for="name">Name :</label>
+                  <input id="name" name="name" type="text" class="form-control" placeholder=" " required>
+                </div>
+              </div>
+              <!-- Text input-->
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <label class=" control-label" for="email">E-mail :</label>
+                  <input id="email" name="email" type="text" class="form-control" placeholder=" " required>
+                </div>
+              </div>
+              <!-- Text input-->
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <label class=" control-label" for="phone">Phone :</label>
+                  <input id="phone" name="phone" type="text" class="form-control" placeholder=" " required>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                  <label class=" control-label" for="subject">Subject :</label>
+                  <input id="subject" name="subject" type="text" class="form-control" placeholder=" " required>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                  <label class=" control-label" for="textarea">Message :</label>
+                  <textarea class="form-control" id="textarea" name="message" rows="6" placeholder=" "></textarea>
+                </div>
+              </div>
+              <!-- Button -->
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group">
+                  <button id="singlebutton" name="singlebutton" type="submit" class="btn btn-default">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+        <!-- <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d912.1647377778534!2d90.39762844811874!3d23.866241431035427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1639828129031!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div> -->
+    
+    
+
+    </div>
+  </div>
+
+
+
+
+
+  {% include 'global/footer.html' %}
+
+
+{% endblock %}

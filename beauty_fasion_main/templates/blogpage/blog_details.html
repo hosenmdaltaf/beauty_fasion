@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'global/navbar.html' %}
+
+<div class="page-header page-caption">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 class="page-title">Blog Details</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="space-medium">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="post-holder mb30">
+                            <div class="post-image"><img src="{{object.image.url}}" class="img-responsive" alt=""></div>
+                            <div class="post-content pinside30 outline">
+                                <div class="mb60">
+                                    <h1 class="mb20 heading-line">{{object.title}}</h1>
+                                    <div class="meta"> <span class="meta-date">{{object.post_date|date:"d M,Y"}}</span> <span class="meta-author"> - by <a href="#">{{object.writer}}</a></span> </div>
+                                    <p>{{object.content|safe}}</p>
+                                </div>
+                              
+                                <div class="bdr-btm"></div>
+                                
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12  col-sm-12 col-xs-12">
+                                        <h1 class="comments-title mb30"> Comments</h1>
+                                        <div class="comments-area mb40">
+                                        {% for comment in comments %}
+  
+                                            <ul class="comment-list listnone">
+                                                <li class="comment">
+                                                    <div class="comment-body">
+                                                        <div class="">
+                                                            <div class="comment-author"><img src="{% static 'images/user.png' %}" alt="" class="img-circle"> </div>
+                                                            <div class="comment-info">
+                                                                <div class="comment-header">
+                                                                    <h4 class="user-title mb10">User</h4>
+                                                                    <div class="comment-meta"><span class="comment-meta-date">{{comment.created_date}}</span></div>
+                                                                </div>
+                                                                <div class="comment-content">
+                                                                    <p>{{comment.text}}</p>
+                                                                </div>
+                                                    
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            {% endfor %}
+                                            <hr>
+                                      
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bdr-btm"></div>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-md-12 col-sm-12">
+                                        <div class="leave-comments">
+                                            <!-- leave comments -->
+                                            <h1 class="reply-title  mb40">Leave A Comment</h1>
+                                        
+                                                <form action="" method="POST" class="reply-form" enctype="multipart/form-data">
+                                                    {% csrf_token %}  
+                                                <div class="row">
+                                                    <!-- Textarea -->
+                                                    <div class="form-group">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <label class="control-label" for="textarea">Comment:</label>
+                                                            <textarea class="form-control" id="textarea" name="text" rows="6" placeholder=" "></textarea>
+                                                            
+                                                        </div>
+                                                    </div>
+                                            
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <!-- Button -->
+                                                        <div class="form-group">
+                                                            <button id="singlebutton" type="submit" name="singlebutton" class="btn btn-default">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                         
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+                <div class="sidebar">
+                    <div class="row">
+                   
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="widget widget-categories">
+                                <h3 class="widget-title">Categories</h3>
+                                <ul class="listnone pinside40 outline">
+                                    {% for cat in category %}
+                                    <li><i class="fa fa-caret-right"></i> <a href="{% url 'servicepage:category_details' cat.pk %}">{{cat.name}}</a></li>
+                                    {% endfor %}
+                                   
+                                </ul>
+                            </div>
+                        </div>
+
+                           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="widget widget-recent-post">
+                                <h3 class="widget-title">Recent Post</h3>
+                                <div class="listnone pinside40 outline">
+
+                                    {% for latest in latest_blogs %}
+                                    <div class="recent-block">
+                                        <a href="{% url 'blogpage:blog_details' latest.pk %}">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 col-sm-2 col-xs-3">
+                                                <div class="recent-img">
+                                                 <img src="{{latest.image.url}}" class="img-responsive" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 col-sm-10 col-xs-9">
+                                                <h3 class="recent-title title">{{latest.title|truncatechars:100}}</h3>
+                                                <div class="meta"><span class="meta-date">{{latest.post_date|date:"d M,Y"}}</span></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    </div>
+                                    {% endfor %}
+                             
+                             
+                                </div>
+                            </div>
+                        </div>
+                   
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'global/footer.html' %}
+
+{% endblock %}

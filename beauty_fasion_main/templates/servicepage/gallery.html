@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'global/navbar.html' %}
+
+
+<div class="page-header page-caption">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1 class="page-title">Gallery</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="space-medium">
+    <div class="container">
+      <div class="row">
+
+        <!-- <div class="col-lg-offest-12 col-lg-12 col-md-offset-12 col-md-12 col-sm-12 col-xs-12"> -->
+          <!-- <div class="row"> -->
+            {% for gallery in gallerys %}
+            <div class="col-lg-4 col-md-4 col-sm-4 co l-xs-4">
+              <div class="portfoio-img">
+                   <a href="#" class="imghover"><img src="{{gallery.image.url}}" class="img-responsive" alt=""></a>
+               </div>
+            </div>
+            {% endfor %}
+      
+          <!-- </div> -->
+        <!-- </div> -->
+     
+      </div>
+    </div>
+  </div>
+  {% include 'global/footer.html' %}
+{% endblock %}

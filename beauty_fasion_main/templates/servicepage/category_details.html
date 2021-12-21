@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'global/navbar.html' %}
+
+   
+<div class="page-header page-caption">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h1 class="page-title">Beauty Saloon Services</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="space-medium">
+    <div class="container">
+      <!-- <div class="col-lg-offest-1 col-lg-12 col-md-offset-1 col-md-12 col-sm-12 col-xs-12"> -->
+      <div class="row"> 
+        {% for service in category_service %}
+        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+          <div class="service-block mb60 outline">
+            <div class="service-caption pinside40">
+              <h2 class="service-title"><a href="{% url 'servicepage:service_detailspage' service.pk %}" class="title">{{service.name}}</a></h2>
+              <p class="mb40">{{service.details|truncatechars:50}}</p>
+              <a href="{% url 'servicepage:service_detailspage' service.pk %}" class="btn-link">Read More</a> </div>
+            
+              <div class="service-img"><img src="{{service.image.url}}" class="img-responsive" alt=""> </div>
+
+          </div>
+        </div>
+      {% endfor %} 
+      </div>
+    <!-- </div> -->
+
+    </div>
+  </div>
+
+{% include 'global/footer.html' %}
+
+{% endblock %}
